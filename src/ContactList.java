@@ -39,7 +39,8 @@ public class ContactList
         // TODO: Complete the addContact method
         Scanner read = new Scanner(System.in);
         System.out.println("Select a type of contact to add:\n" + "1. Student\n" + "2. Teacher");
-        if(read.nextInt() == 1) {
+        int choice = read.nextInt();
+        if(choice == 1) {
             System.out.println("Please fill in the following information");
             System.out.println("First Name: ");
             read.nextLine();
@@ -54,9 +55,10 @@ public class ContactList
             Student s = new Student(firstName, lastName, phoneNumber, grade);
             contacts.add(s);
         }
-        else if(read.nextInt() == 2) {
+        else if(choice == 2) {
             System.out.println("Please fill in the following information");
             System.out.println("First Name: ");
+            read.nextLine();
             String firstName = read.nextLine();
             System.out.println("Last Name: ");
             String lastName = read.nextLine();
@@ -212,6 +214,10 @@ public class ContactList
                 System.out.println("Enter a name: ");
                 read.nextLine();
                 String fName = read.nextLine();
+                if (searchByFirstName(fName) == null) {
+                    System.out.println(fName + " is not in list.");
+                    run();
+                }
                 System.out.println(searchByFirstName(fName));
                 run();
             }
@@ -219,13 +225,21 @@ public class ContactList
                 System.out.println("Enter a name: ");
                 read.nextLine();
                 String lName = read.nextLine();
-                searchByLastName(lName);
+                if (searchByLastName(lName) == null) {
+                    System.out.println(lName + " is not in list.");
+                    run();
+                }
+                System.out.println(searchByLastName(lName));
                 run();
             }
             else if (option == 8) {
                 System.out.println("Enter a phone number: ");
                 read.nextLine();
                 String number = read.nextLine();
+                if (searchByPhoneNumber(number) == null) {
+                    System.out.println(number + " is not in list.");
+                    run();
+                }
                 System.out.println(searchByPhoneNumber(number));
                 run();
             }
