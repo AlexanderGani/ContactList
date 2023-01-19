@@ -69,6 +69,10 @@ public class ContactList
             Teacher s = new Teacher(firstName, lastName, phoneNumber, subject);
             contacts.add(s);
         }
+        else if (choice != 1 || choice != 2) {
+            System.out.println("Select option 1 or 2");
+            addContact();
+        }
     }
 
     /**
@@ -186,7 +190,11 @@ public class ContactList
         if (option == 0) {
             System.exit(1);
         }
-        while(option != 0) {
+        else if (option > 8) {
+            System.out.println("Select options 0 - 8");
+            run();
+        }
+        while(option > 0 || option < 9) {
             if (option == 1) {
                addContact();
                run();
