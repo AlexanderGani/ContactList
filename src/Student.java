@@ -16,4 +16,13 @@ public class Student extends Person {
         this.grade = grade;
     }
 
+    public int getGrade() {
+        return grade;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Grade: " + grade;
+    }
+
 }
