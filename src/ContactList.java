@@ -190,7 +190,7 @@ public class ContactList
         if (option == 0) {
             System.exit(1);
         }
-        else if (option > 8) {
+        else if (option > 8 || option < 0) {
             System.out.println("Select options 0 - 8");
             run();
         }
